@@ -1,0 +1,6 @@
+{ "env" : {
+    "JWT_SECRET":"CODINGWITHNEST",
+    "JWT_EXPIRE":"3d",
+    "MONGO_URI":"mongodb://localhost:27017/nest-project"
+  }
+}
