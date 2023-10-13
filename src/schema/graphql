@@ -1,0 +1,57 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateGraphqlInput {
+  description: String!
+  price: Int!
+  title: String!
+}
+
+input FilteringInput {
+  field: String
+  keyword: String
+}
+
+type Mutation {
+  createPost(creatPost: PostGraphqlInput!): String
+  createProduct(createGraphqlInput: CreateGraphqlInput!): String!
+  deleteProductById(deleteId: Int!): String
+  filterpost(filter: FilteringInput!, pagination: PaginationInput!, sorting: SortingInput!): [PostGraphqlOutput!]!
+  updateProductById(createGraphqlInput: CreateGraphqlInput!, updateId: Int!): String
+}
+
+input PaginationInput {
+  skip: Int!
+  take: Int!
+}
+
+input PostGraphqlInput {
+  comment: String!
+  owner: String!
+  title: String!
+}
+
+type PostGraphqlOutput {
+  comment: String!
+  owner: String!
+  title: String!
+}
+
+type Product {
+  description: String!
+  price: Int!
+  title: String!
+}
+
+type Query {
+  findProductById(id: Int!): [Product!]
+  postAll: [PostGraphqlOutput!]!
+  productAll: [Product!]!
+  productFilterQuery(filter: FilteringInput!, pagination: PaginationInput!, sorting: SortingInput!): [Product!]
+}
+
+input SortingInput {
+  field: String
+  order: Int
+}

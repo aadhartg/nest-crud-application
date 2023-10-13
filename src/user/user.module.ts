@@ -7,11 +7,14 @@ import { AuthModule } from 'src/auth/auth.module';
 import { UserRepository } from './user.repository';
 import { CommonHelper } from 'src/common/helper/common.helper';
 import { JwtService } from '@nestjs/jwt';
+import { GraphqlModule } from 'src/graphql/graphql.module';
+import { CreateUserDtoClass } from './dto/create-user.dto';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: 'user', schema: UserSchema },
   ]), AuthModule],
   controllers: [UserController],
-  providers: [UserService,UserRepository,CommonHelper,JwtService]
+  providers: [UserService,UserRepository,CommonHelper,JwtService,CreateUserDtoClass],
+  exports: [CreateUserDtoClass]
 })
 export class UserModule {}
